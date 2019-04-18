@@ -54,25 +54,20 @@ def updateScore(request):
     elif building == 'cave':
         num = random.randrange(5, 11)
         session["number_coins"] += num
-        add_to_log(
-            f'visited the cave and acquired {num} coins. yay!!!', 'green')
+        add_to_log(session, f'visited the cave and acquired {num} coins. yay!!!', 'green')
     elif building == 'house':
         num = random.randrange(2, 6)
         session["number_coins"] += num
-        add_to_log(
-            session, f'visited the house and acquired {num} coins. yay!!!', 'green')
+        add_to_log(session, f'visited the house and acquired {num} coins. yay!!!', 'green')
     elif building == 'casino':
         num = random.randrange(-50, 51)
         session["number_coins"] += num
         if num > 0:
-            add_to_log(
-                session, f'visited the casino and acquired {num} coins. yay!!!', 'green')
+            add_to_log(session, f'visited the casino and acquired {num} coins. yay!!!', 'green')
         elif num < 0:
-            add_to_log(
-                session, f'visited the casino and got swindled for {num} coins. booo!!!', 'red')
+            add_to_log(session, f'visited the casino and got swindled for {num} coins. booo!!!', 'red')
         else:
-            add_to_log(
-                session, "we had water at the casino and came out even. ~~neutral-ness intensifies~~", '')
+            add_to_log(session, "we had water at the casino and came out even. ~~neutral-ness intensifies~~", '')
     else:
         add_to_log(session, 'what the heck just happened???', '')
 
